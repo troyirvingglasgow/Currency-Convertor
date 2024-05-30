@@ -12,10 +12,9 @@ exchange_rates = {'NZD': {'USD': 0.60, 'CAD': 0.81},
 # Button colors
 BUTTON_COLOR = "#fefae0"
 HELP_BUTTON_COLOR = "#fefae0"
-
-# Input Box Colours
 INPUT_BOX_COLOUR = "#fefae0"
 
+#HELP GUI
 class HelpWindow(tk.Toplevel):
     def __init__(self, master=None, parent=None):
         super().__init__(master)
@@ -55,7 +54,7 @@ class HelpWindow(tk.Toplevel):
         self.parent.deiconify()  # Show the parent window
         self.destroy()  # Close the help window
 
-
+#HISTORY GUI
 class HistoryExport:
     def __init__(self, parent, history):
         self.parent = parent
@@ -90,6 +89,7 @@ class HistoryExport:
                                 bg="#fefae0", fg="#361d18", font=("Arial", 12, "bold"))
         back_button.pack(side=tk.BOTTOM, fill=tk.X, padx=20, pady=(0, 10))
 
+#EXPORT TO FILE COMPONENT
     def add_to_file(self):
         selected_indices = self.history_listbox.curselection()
         if not selected_indices:
@@ -117,7 +117,7 @@ class HistoryExport:
         self.history_window.destroy()  # Close the history window
         self.parent.deiconify()  # Show the main window
 
-
+#MAIN GUI
 class CurrencyConverterApp:
     def display_help(self):
         self.root.withdraw()  # Hide the main window
@@ -182,6 +182,7 @@ class CurrencyConverterApp:
         # Initialize history list
         self.history = []
 
+#CURRENCY CONVERION CODE
     def convert_currency(self):
         from_currency = self.from_currency_var.get()
         to_currency = self.to_currency_var.get()
